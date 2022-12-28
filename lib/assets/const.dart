@@ -33,6 +33,7 @@ TextStyle regular15WhiteBoldText=GoogleFonts.poppins(color: Colors.white,fontSiz
                 ),
             ],);
 TextStyle regular15GreyText=GoogleFonts.poppins(color: Colors.grey,fontSize: 16,fontWeight: FontWeight.w400);
+TextStyle big23BlackText=GoogleFonts.poppins(color: Colors.black,fontSize: 23,fontWeight: FontWeight.w600);
 TextStyle regular18WhiteText=GoogleFonts.poppins(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w400);
 TextStyle big18GreyText=GoogleFonts.poppins(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w400);
 TextStyle big18WhiteText=GoogleFonts.poppins(color:Colors.white,fontSize: 18,fontWeight: FontWeight.w600);

@@ -17,30 +17,31 @@ class CardSwipe extends StatelessWidget {
   Widget build(BuildContext context) {
     final SplashController c = Get.find();
     final HomeController d = Get.find();
+    List listwidgets = [BalanceCard(), AddWalletContainer()];
 
     return Column(
       children: [
         Center(
           child: SizedBox(
             height: 28.h,
-            child: Swiper(
+            child: Swiper.children(
                 viewportFraction: 0.8,
                 scale: 0.6,
                 itemWidth: 85.w,
                 itemHeight: 27.h,
+                
                 pagination: const SwiperPagination(
                     margin: EdgeInsets.all(2.0),
                     builder: DotSwiperPaginationBuilder(
                         activeColor: Colors.white, color: Colors.grey)),
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                     BalanceCard(),
-                     
-                    ],
-                  );
-                },
-                itemCount: 2),
+              children: [
+              BalanceCard(),
+              AddWalletContainer(),
+            
+            ],
+                  
+            )  
+               
           ),
         ),
       ],

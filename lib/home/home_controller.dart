@@ -93,6 +93,29 @@ class HomeController extends GetxController {
 
     }
   }
+  void rainbowconnectWallet() async {
+    isConnectWallet.value = await walletConnectHelper.trustinitSession();
+    print("Hommeee ${isConnectWallet.value}");
+    if (isConnectWallet.value) {
+      publicWalletAddress = walletConnectHelper
+          .getEthereumCredentials()
+          .getEthereumAddress()
+          .toString();
+      publicWalletAddress = toEIP55Address(publicWalletAddress);
+
+      // Init
+      initWeb3Client();
+      initContract();
+      fromAddressEditController.text = publicWalletAddress;
+      toAddressEditController.text =
+          '0x3D7BAD4D04eE46280E29B5149EE1EAa0d5Ff649F';
+      setSession();
+      // Update
+      update();
+      // setState(() {});
+
+    }
+  }
 
   void disconnectWallet() {
     walletConnectHelper.dispose();

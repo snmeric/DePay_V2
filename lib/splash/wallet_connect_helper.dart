@@ -87,6 +87,28 @@ class WalletConnectHelper {
       return true;
     }
   }
+  Future<bool> rainbowinitSession({int? chainId}) async {
+    if (!connector.connected) {
+      try {
+        sessionStatus = await connector.createSession(
+          chainId: chainId,
+          onDisplayUri: (uri) async {
+            await _rainbowConnectWallet(displayUri: uri);
+          },
+        );
+
+        accounts = sessionStatus?.accounts ?? [];
+
+        return true;
+      } catch (e) {
+        debugPrint('createSession() - failure - $e');
+        //reset();
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
     Future<bool> trustinitSession({int? chainId}) async {
     if (!connector.connected) {
       try {
@@ -131,11 +153,34 @@ class WalletConnectHelper {
       throw 'connectWallet() - failure - Could not open $deeplink.';
     }
   }
-
+Future<void> _rainbowConnectWallet({
+    CryptoWallet wallet = CryptoWallet.rainbowMe,
+    required String displayUri,
+  }) async {
+    var deeplink = DeeplinkUtil.getDeeplink(wallet: wallet, uri: displayUri);
+    bool isLaunch = await launchUrlString(deeplink);
+    if (!isLaunch) {
+      throw 'connectWallet() - failure - Could not open $deeplink.';
+    }
+  }
   Future<String> trustGetPublicAddress(
       {CryptoWallet wallet = CryptoWallet.trustWallet}) async {
     if (!connector.connected) {
       await trustinitSession();
+    }
+
+    if (accounts.isNotEmpty) {
+      String address = accounts.first;
+      address = toEIP55Address(address);
+      return address;
+    } else {
+      throw 'Unexpected exception';
+    }
+  }
+  Future<String> rainbowGetPublicAddress(
+      {CryptoWallet wallet = CryptoWallet.rainbowMe}) async {
+    if (!connector.connected) {
+      await rainbowinitSession();
     }
 
     if (accounts.isNotEmpty) {

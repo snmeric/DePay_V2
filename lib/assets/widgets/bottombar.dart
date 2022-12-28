@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:depay_v2/assets/constants.dart';
+import 'package:depay_v2/campany/screens/home_screen.dart';
+
 import 'package:depay_v2/coin/piyasa.dart';
+import 'package:depay_v2/profile/pages/profile_page.dart';
 import 'package:depay_v2/profile/profile.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +24,11 @@ class _NaviScreenState extends State<NaviScreen> {
   final screen = [
     const HomePage(),
     const Piyasa(),
-    Center(child: Text("3"),),
-    Center(child: Text("4"),),
-   ProfilePage()
+    Center(
+      child: Text("3"),
+    ),
+   CampanyHomePage(),
+    PersonalProfilePage()
   ];
 
   @override

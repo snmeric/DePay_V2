@@ -74,20 +74,20 @@ class BalanceCard extends StatelessWidget {
               Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  Opacity(
-                    opacity: 0.2,
-                    child: Image.asset(
-                      "lib/assets/images/logo/MetaMask.png",
-                      height: 200,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      "lib/assets/images/logo/MetaMask.png",
-                      height: 80,
-                    ),
-                  ),
+                  // Opacity(
+                  //   opacity: 0.2,
+                  //   child: Image.asset(
+                  //     "lib/assets/images/logo/MetaMask.png",
+                  //     height: 200,
+                  //   ),
+                  // ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: Image.asset(
+                  //     "lib/assets/images/logo/MetaMask.png",
+                  //     height: 80,
+                  //   ),
+                  // ),
                   Container(
                     alignment: Alignment.bottomRight,
                     child: Padding(
