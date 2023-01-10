@@ -43,7 +43,7 @@ class EditNameFormPageState extends State<EditNameFormPage> {
             children: <Widget>[
               SizedBox(
                   width: 330,
-                  child: Text("What's Your Name?", style: regular15WhiteText)),
+                  child: Text("Adınız Soyadınız?", style: regular15WhiteText)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +92,7 @@ class EditNameFormPageState extends State<EditNameFormPage> {
                               return null;
                             },
                             decoration: const InputDecoration(
-                              labelText: 'Last Name',
+                              labelText: 'Soyadın',
                               labelStyle: TextStyle(color: Colors.white),
                               
                               filled: true,

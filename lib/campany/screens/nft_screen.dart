@@ -77,12 +77,7 @@ class NFTScreen extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            SmallContainer(
-                              title: collection.owners.toString(),
-                              subtitle: 'Owners',
-                              backgroundColor: kWhiteColor.withOpacity(0.5),
-                              foregroundColor: kBlackColor,
-                            ),
+                          
                             SmallContainer(
                               title: collection.owners.toString(),
                               subtitle: 'Owners',
